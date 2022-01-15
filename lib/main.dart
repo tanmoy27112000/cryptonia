@@ -1,6 +1,8 @@
 import 'package:cryptonia/api/base_api.dart';
 import 'package:cryptonia/controller/BtcToCrypto_controller.dart';
 import 'package:cryptonia/controller/dashboard_controller.dart';
+import 'package:cryptonia/controller/exchange_controller.dart';
+import 'package:cryptonia/controller/exchange_detail_controller.dart';
 import 'package:cryptonia/controller/status_controller.dart';
 import 'package:cryptonia/screen/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +36,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => StatusController(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ExchangeController(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ExchangeDetailController(),
         ),
       ],
       child: const GetMaterialApp(
