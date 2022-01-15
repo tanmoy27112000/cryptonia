@@ -21,9 +21,9 @@ Map<String, dynamic> _$$_StatusModelToJson(_$_StatusModel instance) =>
 _$_StatusUpdate _$$_StatusUpdateFromJson(Map<String, dynamic> json) =>
     _$_StatusUpdate(
       description: json['description'] as String,
-      category: $enumDecode(_$CategoryEnumMap, json['category']),
+      category: json['category'] as String,
       created_at: DateTime.parse(json['created_at'] as String),
-      user: json['user'] as String,
+      user: json['user'] as String?,
       user_title: json['user_title'] as String,
       pin: json['pin'] as bool,
       project: Project.fromJson(json['project'] as Map<String, dynamic>),
@@ -32,7 +32,7 @@ _$_StatusUpdate _$$_StatusUpdateFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_StatusUpdateToJson(_$_StatusUpdate instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'category': _$CategoryEnumMap[instance.category],
+      'category': instance.category,
       'created_at': instance.created_at.toIso8601String(),
       'user': instance.user,
       'user_title': instance.user_title,
@@ -40,33 +40,22 @@ Map<String, dynamic> _$$_StatusUpdateToJson(_$_StatusUpdate instance) =>
       'project': instance.project,
     };
 
-const _$CategoryEnumMap = {
-  Category.GENERAL: 'GENERAL',
-  Category.SOFTWARE_RELEASE: 'SOFTWARE_RELEASE',
-  Category.MILESTONE: 'MILESTONE',
-};
-
 _$_Project _$$_ProjectFromJson(Map<String, dynamic> json) => _$_Project(
-      type: $enumDecode(_$TypeEnumMap, json['type']),
+      type: json['type'] as String,
       id: json['id'] as String,
       name: json['name'] as String,
       image: Image.fromJson(json['image'] as Map<String, dynamic>),
-      symbol: json['symbol'] as String,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic> _$$_ProjectToJson(_$_Project instance) =>
     <String, dynamic>{
-      'type': _$TypeEnumMap[instance.type],
+      'type': instance.type,
       'id': instance.id,
       'name': instance.name,
       'image': instance.image,
       'symbol': instance.symbol,
     };
-
-const _$TypeEnumMap = {
-  Type.Market: 'Market',
-  Type.Coin: 'Coin',
-};
 
 _$_Image _$$_ImageFromJson(Map<String, dynamic> json) => _$_Image(
       thumb: json['thumb'] as String,

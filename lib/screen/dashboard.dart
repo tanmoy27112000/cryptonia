@@ -1,5 +1,6 @@
 import 'package:cryptonia/controller/dashboard_controller.dart';
 import 'package:cryptonia/screen/btc_to_crypto.dart';
+import 'package:cryptonia/screen/status_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +39,15 @@ class _DashboardState extends State<Dashboard> {
                   title: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text("BTC - CRYPTO"),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => Get.to(const StatusPage()),
+                child: const ListTile(
+                  title: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Status update"),
                   ),
                 ),
               ),

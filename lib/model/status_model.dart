@@ -2,9 +2,9 @@
 //
 //     final statusModel = statusModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
+
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'status_model.freezed.dart';
 part 'status_model.g.dart';
@@ -28,9 +28,9 @@ abstract class StatusModel with _$StatusModel {
 abstract class StatusUpdate with _$StatusUpdate {
   const factory StatusUpdate({
     required String description,
-    required Category category,
+    required String category,
     required DateTime created_at,
-    required String user,
+    String? user,
     required String user_title,
     required bool pin,
     required Project project,
@@ -40,22 +40,14 @@ abstract class StatusUpdate with _$StatusUpdate {
       _$StatusUpdateFromJson(json);
 }
 
-enum Category { GENERAL, SOFTWARE_RELEASE, MILESTONE }
-
-final categoryValues = EnumValues({
-  "general": Category.GENERAL,
-  "milestone": Category.MILESTONE,
-  "software_release": Category.SOFTWARE_RELEASE
-});
-
 @freezed
 abstract class Project with _$Project {
   const factory Project({
-    required Type type,
+    required String type,
     required String id,
     required String name,
     required Image image,
-    required String symbol,
+    String? symbol,
   }) = _Project;
 
   factory Project.fromJson(Map<String, dynamic> json) =>
@@ -71,22 +63,4 @@ abstract class Image with _$Image {
   }) = _Image;
 
   factory Image.fromJson(Map<String, dynamic> json) => _$ImageFromJson(json);
-}
-
-enum Type { Market, Coin }
-
-final typeValues = EnumValues({"Coin": Type.Coin, "Market": Type.Market});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap = {};
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

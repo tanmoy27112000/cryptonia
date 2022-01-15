@@ -172,9 +172,9 @@ class _$StatusUpdateTearOff {
 
   _StatusUpdate call(
       {required String description,
-      required Category category,
+      required String category,
       required DateTime created_at,
-      required String user,
+      String? user,
       required String user_title,
       required bool pin,
       required Project project}) {
@@ -200,9 +200,9 @@ const $StatusUpdate = _$StatusUpdateTearOff();
 /// @nodoc
 mixin _$StatusUpdate {
   String get description => throw _privateConstructorUsedError;
-  Category get category => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
   DateTime get created_at => throw _privateConstructorUsedError;
-  String get user => throw _privateConstructorUsedError;
+  String? get user => throw _privateConstructorUsedError;
   String get user_title => throw _privateConstructorUsedError;
   bool get pin => throw _privateConstructorUsedError;
   Project get project => throw _privateConstructorUsedError;
@@ -220,9 +220,9 @@ abstract class $StatusUpdateCopyWith<$Res> {
       _$StatusUpdateCopyWithImpl<$Res>;
   $Res call(
       {String description,
-      Category category,
+      String category,
       DateTime created_at,
-      String user,
+      String? user,
       String user_title,
       bool pin,
       Project project});
@@ -256,7 +256,7 @@ class _$StatusUpdateCopyWithImpl<$Res> implements $StatusUpdateCopyWith<$Res> {
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as String,
       created_at: created_at == freezed
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -264,7 +264,7 @@ class _$StatusUpdateCopyWithImpl<$Res> implements $StatusUpdateCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       user_title: user_title == freezed
           ? _value.user_title
           : user_title // ignore: cast_nullable_to_non_nullable
@@ -297,9 +297,9 @@ abstract class _$StatusUpdateCopyWith<$Res>
   @override
   $Res call(
       {String description,
-      Category category,
+      String category,
       DateTime created_at,
-      String user,
+      String? user,
       String user_title,
       bool pin,
       Project project});
@@ -336,7 +336,7 @@ class __$StatusUpdateCopyWithImpl<$Res> extends _$StatusUpdateCopyWithImpl<$Res>
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as String,
       created_at: created_at == freezed
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -344,7 +344,7 @@ class __$StatusUpdateCopyWithImpl<$Res> extends _$StatusUpdateCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       user_title: user_title == freezed
           ? _value.user_title
           : user_title // ignore: cast_nullable_to_non_nullable
@@ -368,7 +368,7 @@ class _$_StatusUpdate implements _StatusUpdate {
       {required this.description,
       required this.category,
       required this.created_at,
-      required this.user,
+      this.user,
       required this.user_title,
       required this.pin,
       required this.project});
@@ -379,11 +379,11 @@ class _$_StatusUpdate implements _StatusUpdate {
   @override
   final String description;
   @override
-  final Category category;
+  final String category;
   @override
   final DateTime created_at;
   @override
-  final String user;
+  final String? user;
   @override
   final String user_title;
   @override
@@ -438,9 +438,9 @@ class _$_StatusUpdate implements _StatusUpdate {
 abstract class _StatusUpdate implements StatusUpdate {
   const factory _StatusUpdate(
       {required String description,
-      required Category category,
+      required String category,
       required DateTime created_at,
-      required String user,
+      String? user,
       required String user_title,
       required bool pin,
       required Project project}) = _$_StatusUpdate;
@@ -451,11 +451,11 @@ abstract class _StatusUpdate implements StatusUpdate {
   @override
   String get description;
   @override
-  Category get category;
+  String get category;
   @override
   DateTime get created_at;
   @override
-  String get user;
+  String? get user;
   @override
   String get user_title;
   @override
@@ -477,11 +477,11 @@ class _$ProjectTearOff {
   const _$ProjectTearOff();
 
   _Project call(
-      {required Type type,
+      {required String type,
       required String id,
       required String name,
       required Image image,
-      required String symbol}) {
+      String? symbol}) {
     return _Project(
       type: type,
       id: id,
@@ -501,11 +501,11 @@ const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
-  Type get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Image get image => throw _privateConstructorUsedError;
-  String get symbol => throw _privateConstructorUsedError;
+  String? get symbol => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -516,7 +516,7 @@ mixin _$Project {
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
-  $Res call({Type type, String id, String name, Image image, String symbol});
+  $Res call({String type, String id, String name, Image image, String? symbol});
 
   $ImageCopyWith<$Res> get image;
 }
@@ -541,7 +541,7 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as Type,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -557,7 +557,7 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -574,7 +574,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
   @override
-  $Res call({Type type, String id, String name, Image image, String symbol});
+  $Res call({String type, String id, String name, Image image, String? symbol});
 
   @override
   $ImageCopyWith<$Res> get image;
@@ -601,7 +601,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as Type,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -617,7 +617,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -630,13 +630,13 @@ class _$_Project implements _Project {
       required this.id,
       required this.name,
       required this.image,
-      required this.symbol});
+      this.symbol});
 
   factory _$_Project.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectFromJson(json);
 
   @override
-  final Type type;
+  final String type;
   @override
   final String id;
   @override
@@ -644,7 +644,7 @@ class _$_Project implements _Project {
   @override
   final Image image;
   @override
-  final String symbol;
+  final String? symbol;
 
   @override
   String toString() {
@@ -685,16 +685,16 @@ class _$_Project implements _Project {
 
 abstract class _Project implements Project {
   const factory _Project(
-      {required Type type,
+      {required String type,
       required String id,
       required String name,
       required Image image,
-      required String symbol}) = _$_Project;
+      String? symbol}) = _$_Project;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
 
   @override
-  Type get type;
+  String get type;
   @override
   String get id;
   @override
@@ -702,7 +702,7 @@ abstract class _Project implements Project {
   @override
   Image get image;
   @override
-  String get symbol;
+  String? get symbol;
   @override
   @JsonKey(ignore: true)
   _$ProjectCopyWith<_Project> get copyWith =>
